@@ -7,8 +7,12 @@ npm run dev
 # or
 yarn dev
 ```
-#or
-node -v 16.17.1
+# install plugins
+node -v 16.17.1;
+tailwind css;
+axios;
+redux;
+i18n;
 ```
 #or
 packag manger
