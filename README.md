@@ -8,6 +8,7 @@ npm run dev
 yarn dev
 ```
 # install plugins
+```bash
 node -v 16.17.1;
 tailwind css;
 axios;
