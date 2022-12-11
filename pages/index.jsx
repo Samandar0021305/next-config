@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useSelector } from 'react-redux';
 export const  getStaticProps = async ({ locale }) => ({
   props: {
     ...(await serverSideTranslations(locale, ['common'])),
@@ -9,6 +10,7 @@ export const  getStaticProps = async ({ locale }) => ({
 })
  function Home() {
   const router= useRouter();
+  const userList = useSelector(state => state.users.userList);
   const {locale} = router;
   const {t} = useTranslation("common");
   return (
@@ -27,6 +29,13 @@ export const  getStaticProps = async ({ locale }) => ({
       </main>
 
       <footer>
+        <nav>
+       {userList.map((el, index) => (
+        <div key={index}>
+           <span>name: {el.name}</span>
+        </div>
+       ))}
+        </nav>
       </footer>
     </div>
   )
